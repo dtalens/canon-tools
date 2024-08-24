@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-    Unicorn script used to decompress Canon MG6450 printer firmwares
+    Unicorn script used to decompress Canon MG2950 printer firmwares
 """
 from unicorn import *
 from unicorn.arm_const import *
@@ -16,7 +16,7 @@ def hook_code(mu, address, size, user_data):
 BASE = 0x0
 STACK_ADDR = 0xFFFFFFFF
 STACK_SIZE = 2 * 1024 * 1024 # 2 MB stack size
-FW_PATH = 'firmware/176BV3020AN_decrypted-fixed.bin'
+FW_PATH = 'decrypted.bin'
 mu = Uc(UC_ARCH_ARM, UC_MODE_ARM|UC_MODE_THUMB)
 
 with open(FW_PATH, 'rb') as f:
